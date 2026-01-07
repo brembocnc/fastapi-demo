@@ -11,7 +11,7 @@ app = FastAPI()
 # 若 Render 沒設定，預設為你的程式碼中的值
 PROJECT_ID = os.getenv("PROJECT_ID", "sudaocr")
 LOCATION = os.getenv("GCP_LOCATION", "global") # 建議用 us-central1，global 有時會有延遲或權限問題
-MODEL_ID = "gemini-3-pro-preview" # ⚠️ 注意：Gemini 3 Pro Preview 非常新，若無權限請改回 gemini-1.5-pro
+MODEL_ID = "gemini-3-flash-preview" # ⚠️ 注意：Gemini 3 Pro Preview 非常新，若無權限請改回 gemini-1.5-pro
 
 # --- 初始化 Google GenAI Client ---
 client = None
@@ -112,4 +112,5 @@ async def analyze_image(
 
     except Exception as e:
         print(f"❌ 處理錯誤: {e}")
+
         raise HTTPException(status_code=500, detail=str(e))
